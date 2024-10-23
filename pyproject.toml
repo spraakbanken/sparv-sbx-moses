@@ -15,10 +15,10 @@ authors = [
 dependencies = [
     "sparv-pipeline~=5.0",
 ]
-entry-points."sparv.plugin" = { moses = "moses" }
+entry-points."sparv.plugin" = { sbx_moses = "sbx_moses" }
 
 [project.urls]
 Homepage = "https://github.com/spraakbanken/sparv-sbx-moses/"
 
 [tool.hatch]
-build.include = ["/moses"]
+build.include = ["/sbx_moses"]

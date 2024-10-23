@@ -11,18 +11,18 @@ CHAR_SEP = " "
 @annotator(
     "Statistical machine translation using Moses",
     config=[
-        Config("moses.bin", description="Absolute path to Moses executable"),
-        Config("moses.ini", description="Absolute path to Moses ini file"),
-        Config("moses.threads", default=12, description="Number of threads to use"),
+        Config("sbx_moses.bin", description="Absolute path to Moses executable"),
+        Config("sbx_moses.ini", description="Absolute path to Moses ini file"),
+        Config("sbx_moses.threads", default=12, description="Number of threads to use"),
     ],
 )
 def run(
     word: Annotation = Annotation("<token:word>"),
     sentence: Annotation = Annotation("<sentence>"),
-    out: Output = Output("<token>:moses.word"),
-    executable: Binary = Binary("[moses.bin]"),
-    config: str = Config("moses.ini"),
-    threads: int = Config("moses.threads"),
+    out: Output = Output("<token>:sbx_moses.word"),
+    executable: Binary = Binary("[sbx_moses.bin]"),
+    config: str = Config("sbx_moses.ini"),
+    threads: int = Config("sbx_moses.threads"),
 ) -> None:
     """Annotate using Moses."""
     sentences, orphans = sentence.get_children(word)
